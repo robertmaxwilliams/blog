@@ -18,3 +18,7 @@ Optical illusions are patterns that when observed by the human eye, create false
 ## Human in the Loop ##
 Both artistic designers of illusion images and the glacial process of evolution have access to active vision systems to verify their work against. An illusion artist can make an attempt at creating an illusion, observe its effect on their eyes, and add or remove elements to try to create a more powerful illusion. In an evolutionary process, every agent has a physical aprearance and a vision system, allowing for patterns to be verified in their environment constantly. A GAN trained on existing illusions would have none of these advantages, and would be just as likely to create non-illusions as it is to create a novel class of images. 
 
+To impove the model beyond the existing data, its outputs can be classified by hand and fed back into the network. I am not sure if this form of dataset expansion has been used with generative models before.
+
+## Dataset ##
+In coming blog posts, I will search out sources of illusion images and make further considerations for how to approach this problem.
