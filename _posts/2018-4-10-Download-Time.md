@@ -11,7 +11,7 @@ A greatly reduced version of around 500 images can be found in [this floydhub da
 
 I trained the "[bottleneck](https://www.tensorflow.org/tutorials/image_retraining)" of an image classification model, taken from the tensorflow models repo, on the viperlib images. They were categorized by the metadata collected during webscraping. 
 
-![better than random](images/confusion-illusion.png)
+![better than random](/images/confusion-illusion.png)
 
 It performed much better than random, but not very well. I doubt it learned anything meaningful to the data, only texture and context clues that roughly correlate with the assigned classes. As well, the data is multi-class but I treated it as single class by including an images in all of its given classes. This means that on a multiclass image, it was guessing the class. I didn't account for this in the results, which I really should have. 
 
