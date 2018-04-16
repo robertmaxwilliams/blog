@@ -21,9 +21,9 @@ I need to repeat this study with a proper multiclass model. I want to make it fr
 
 This is the second time I've attempted to train a GAN. The first was on kickstarter images, and led to some strange shapes and textures, but nothing sellable. This time I used the full dataset linked above, and got similar results. It learns... something. It's hard to say what exactly. One thing I realized in hindsight is that every image in the group looks exactly the same. A lack of variety within a batch indicated some sort of mistake on my part setting the model parameters, not with the data. Data science is hard, and GPU time is expensive. Dr. Yampolskiy suggested that I could use the university's computing resources, which would make it practical to experiment more with these computationally expensive models.
 
-![Not good](/images/000001.png")
+![Not good](/images/000001.png)
 ![Better](/images/000263.png)
-![Actually, not good at all](/images/000365.png")
+![Actually, not good at all](/images/000365.png)
 
 ### What's Next
 
