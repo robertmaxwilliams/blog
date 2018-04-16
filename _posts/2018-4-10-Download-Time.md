@@ -9,7 +9,7 @@ A greatly reduced version of around 500 images can be found in [this floydhub da
 
 ### Classifier
 
-I trained the "[bottleneck](https://www.tensorflow.org/tutorials/image_retraining)" of an image classification model, taken from the tensorflow models repo, on the viperlib images. They were categorized by the metadata collected during webscraping. 
+I trained the "[bottleneck](https://www.tensorflow.org/tutorials/image_retraining)" of an image classification model, taken from the tensorflow models repo, on the moillusion images. I used a smaller subset of the categories, categories that had at least 20 images and seemed relevant to the goals of the project.
 
 ![better than random](/images/confusion-illusion.png)
 
