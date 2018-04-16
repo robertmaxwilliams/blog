@@ -3,8 +3,29 @@ layout: post
 title: Data Download Time
 ---
 
-I downloaded and cleaned all of the files from [Mighty Optical Illusions](https://www.moillusions.com/4-dots-illusion/)  and [ViperLib](http://viperlib.york.ac.uk/) into JPEG (.jpg) images. They are available for download from <https://www.floydhub.com/robertmax/datasets/optical-illusions> and the source files and build process can be found on <https://github.com/robertmaxwilliams/optical-illusion-dataset>.
+I downloaded and cleaned all of the files from [Mighty Optical Illusions](https://www.moillusions.com/4-dots-illusion/)  and [ViperLib](http://viperlib.york.ac.uk/) into JPEG (.jpg) images. They are available for download from <https://www.floydhub.com/robertmax/datasets/illusions-jpg> and the source files and build process can be found on <https://github.com/robertmaxwilliams/optical-illusion-dataset>.
 
-In the meantime I made an experiment trying to train a GAN on all of image, and a classifier. Both failed in different ways
+A greatly reduced version of around 500 images can be found in [this floydhub dataset](https://www.floydhub.com/robertmax/datasets/illusions-filtered). Training a GAN on these might yield better results than the last attempt with the full dataset (see below).
 
-TODO include confusion matrix and GAN trash
+### Classifier
+
+I trained the "[bottleneck](https://www.tensorflow.org/tutorials/image_retraining)" of an image classification model, taken from the tensorflow models repo, on the viperlib images. They were categorized by the metadata collected during webscraping. 
+
+![better than random](images/confusion-illusion.png)
+
+It performed much better than random, but not very well. I doubt it learned anything meaningful to the data, only texture and context clues that roughly correlate with the assigned classes. As well, the data is multi-class but I treated it as single class by including an images in all of its given classes. This means that on a multiclass image, it was guessing the class. I didn't account for this in the results, which I really should have. 
+
+I need to repeat this study with a proper multiclass model. I want to make it from scratch in Keras or Tensorflow, but will need more computing power to train the full image convolution layers instead of just the dense bottleneck layers which I trained on my laptop.
+
+### GAN Failure
+
+This is the second time I've attempted to train a GAN. The first was on kickstarter images, and led to some strange shapes and textures, but nothing sellable. This time I used the full dataset linked above, and got similar results. It learns... something. It's hard to say what exactly. One thing I realized in hindsight is that every image in the group looks exactly the same. A lack of variety within a batch indicated some sort of mistake on my part setting the model parameters, not with the data. Data science is hard, and GPU time is expensive. Dr. Yampolskiy suggested that I could use the university's computing resources, which would make it practical to experiment more with these computationally expensive models.
+
+![Not good](/images/000001.png")
+![Better](/images/000263.png)
+![Actually, not good at all](/images/000365.png")
+
+### What's Next
+
+I'm working over the summer on a machine learning project (details soon) and should be able to apply my new skills to this project. So far I've spent most of my time working with the data, and very little tweaking the actual models. Now that I have a nice clean dataset and two baseline projects, I can improve upon it from here. The data work isn't totally done; the disparity between viperlib and moillusions is a difficult problem that needs to be resolved thoughfully. A full human labeling of the dataset would be nice, but I would need external support to afford the labor hours for something like that.
+
